@@ -1,0 +1,126 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import Flutter from "./icons/Flutter.astro";
+import React from "./icons/React.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Supabase from "./icons/Supabase.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+
+const TAGS = {
+  FLUTTER: {
+    name: "Flutter",
+    class: "bg-[#02569B] text-white",
+    icon: Flutter,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#149ECA] text-white",
+    icon: React,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#3178C6] text-white",
+    icon: TypeScript,
+  },
+  SUPABASE: {
+    name: "Supabase",
+    class: "bg-[#3ECF8E] text-white",
+    icon: Supabase,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "MysticMe - Tu Guía Diaria de Tarot y Horóscopo",
+    description:
+      "Aplicación móvil completa desarrollada desde cero que guía al usuario en prácticas de meditación y autoconocimiento. Disponible en Google Play con lecturas de tarot diarias, horóscopo personalizado y un diario místico. Incluye autenticación, base de datos SQL y analytics de crashes.",
+    link: "https://mysticme.vercel.app/",
+    github: "",
+    googlePlay:
+      "https://play.google.com/store/apps/details?id=com.joanm.mysticme",
+    image: "/mysticme.webp",
+    tags: [TAGS.FLUTTER, TAGS.SUPABASE],
+  },
+  {
+    title: "Kado Masajes - Página Web Corporativa",
+    description:
+      "Sitio web corporativo informativo para un negocio local de masajes terapéuticos. Diseño moderno y responsivo que muestra servicios, información de contacto y datos de la empresa. Desarrollada con las últimas tecnologías web.",
+    link: "https://kadomasajes.com",
+    image: "/kadomasajes.webp",
+    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(
+      ({ image, title, description, tags, link, github, googlePlay }) => (
+        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+          <div class="w-full md:w-1/2">
+            <div class="relative col-span-6 row-span-5 transition duration-500 ease-in-out transform shadow-xl overflow-hidden rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+              <img
+                alt={`Captura de pantalla del proyecto ${title}`}
+                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                src={image}
+              />
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 md:max-w-lg">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+              {title}
+            </h3>
+            <div class="flex flex-wrap mt-2">
+              <ul class="flex flex-row mb-2 gap-x-2">
+                {tags.map((tag) => (
+                  <li>
+                    <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                    >
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="mt-2 text-gray-700 dark:text-gray-400">
+                {description}
+              </div>
+              <footer class="flex items-end justify-start mt-4 gap-x-4">
+                {github && (
+                  <LinkButton href={github}>
+                    <GitHub class="size-6" />
+                    Code
+                  </LinkButton>
+                )}
+                {link && (
+                  <LinkButton href={link}>
+                    <Link class="size-4" />
+                    Preview
+                  </LinkButton>
+                )}
+                {googlePlay && (
+                  <LinkButton href={googlePlay}>
+                    <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                    </svg>
+                    Google Play
+                  </LinkButton>
+                )}
+              </footer>
+            </div>
+          </div>
+        </article>
+      )
+    )
+  }
+</div>

@@ -1,0 +1,31 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Junio 2023 - Presente",
+    title: "Desarrollador Full Stack (Python & TypeScript)",
+    company: "INETUM – Proyecto AI4CS",
+    description: [
+      "Desarrollé microservicios en Python para OCR, clasificación de documentos, validación, anonimización y orquestación comunicados mediante RabbitMQ",
+      "Construí librerías internas reutilizables para Azure Document Intelligence, Azure Language, Azure Storage y OpenAI",
+      "Diseñé y desarrollé APIs REST con Hono + TypeScript, implementando validación con Zod y documentación OpenAPI/Swagger con autenticación Keycloak",
+      "Implementé front-ends en Next.js + Tailwind, incluyendo dashboards de extracción, visualización de steps y portal de administración de clientes",
+      "Gestioné despliegues en Azure Kubernetes Service (AKS) con Docker, Helm, ConfigMaps, Secrets y Vault, monitorizando con Lens y Grafana",
+      "Establecí pipelines CI/CD con Jenkins para integración con Azure y despliegues automáticos de imágenes Docker",
+      "Administré bases de datos PostgreSQL en Azure, gestionando modelos y migraciones",
+    ],
+    link: "https://www.inetum.com/",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

@@ -1,50 +1,305 @@
 ---
+import "@fontsource-variable/onest";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
-	title: string;
+  title: string;
+  description: string;
+  image?: string;
+  url?: string;
+  type?: string;
 }
 
-const { title } = Astro.props;
+const {
+  description,
+  title,
+  image = "/foto.jpeg",
+  url = "https://joanmarqueno.vercel.app",
+  type = "website",
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Search Console Verification -->
+    <meta
+      name="google-site-verification"
+      content="UWMNlvAGa7vSqU0wmq9gqM5yyyMOMQs7TWLkDrN6NdI"
+    />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Joan Marqueño, desarrollador full stack, Python, TypeScript, Azure AI, microservicios, Tarragona, España, portfolio, desarrollador web"
+    />
+    <meta name="author" content="Joan Marqueño" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/foto.jpeg" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Joan Marqueño - Portfolio" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+    <meta property="twitter:creator" content="@joanmarqueno" />
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#3B82F6" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="geo.region" content="ES-CT" />
+    <meta name="geo.placename" content="Tarragona" />
+    <meta name="geo.position" content="41.1189;1.2445" />
+    <meta name="ICBM" content="41.1189, 1.2445" />
+    <meta name="DC.title" content={title} />
+    <meta name="DC.creator" content="Joan Marqueño" />
+    <meta
+      name="DC.subject"
+      content="Desarrollador Full Stack, Python, TypeScript, Azure AI"
+    />
+    <meta name="DC.description" content={description} />
+    <meta name="DC.publisher" content="Joan Marqueño" />
+    <meta name="DC.contributor" content="Joan Marqueño" />
+    <meta name="DC.date" content={new Date().toISOString()} />
+    <meta name="DC.type" content="Text" />
+    <meta name="DC.format" content="text/html" />
+    <meta name="DC.identifier" content={canonicalURL} />
+    <meta name="DC.language" content="es" />
+    <meta name="DC.rights" content="© 2025 Joan Marqueño" />
+    <meta name="DC.coverage" content="España" />
+    <meta
+      name="DC.audience"
+      content="Desarrolladores, Empresas, Reclutadores"
+    />
+
+    <!-- Technical SEO -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Joan Marqueño Portfolio" />
+    <meta
+      name="msapplication-tooltip"
+      content="Portfolio de Joan Marqueño - Desarrollador Full Stack"
+    />
+    <meta name="msapplication-starturl" content="/" />
+    <meta name="msapplication-navbutton-color" content="#3B82F6" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+
+    <!-- Performance & Security -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://vercel.com" />
+    <link rel="preconnect" href="https://joanmarqueno.vercel.app" />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//vercel.com" />
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/foto.jpeg" as="image" type="image/jpeg" />
+    <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Joan Marqueño",
+        "jobTitle": "Desarrollador Full Stack",
+        "description": "Desarrollador Full Stack especializado en Python y TypeScript, con experiencia en aplicaciones cloud escalables con microservicios e inteligencia artificial.",
+        "url": "https://joanmarqueno.vercel.app",
+        "image": "https://joanmarqueno.vercel.app/foto.jpeg",
+        "sameAs": [
+          "https://linkedin.com/in/joanmarqueno",
+          "https://github.com/JoanMarqueno"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Tarragona",
+          "addressCountry": "ES"
+        },
+        "knowsAbout": [
+          "Python",
+          "TypeScript",
+          "Azure AI",
+          "Microservicios",
+          "Desarrollo Web",
+          "Inteligencia Artificial"
+        ],
+        "alumniOf": "Certificado en Azure AI"
+      }
+    </script>
+
+    <!-- Additional Structured Data for Projects -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "MysticMe - Tu Guía Diaria de Tarot y Horóscopo",
+        "description": "Aplicación móvil completa desarrollada desde cero que guía al usuario en prácticas de meditación y autoconocimiento.",
+        "creator": {
+          "@type": "Person",
+          "name": "Joan Marqueño"
+        },
+        "url": "https://play.google.com/store/apps/details?id=com.joanm.mysticme",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Android",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kado Masajes - Página Web Corporativa",
+        "description": "Sitio web corporativo informativo para un negocio local de masajes terapéuticos.",
+        "creator": {
+          "@type": "Person",
+          "name": "Joan Marqueño"
+        },
+        "url": "https://kadomasajes.com",
+        "inLanguage": "es"
+      }
+    </script>
+
+    <ViewTransitions />
+  </head>
+
+  <body class="relative text-black dark:text-white">
+    <div
+      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
+    <Header />
+    <slot />
+    <Footer />
+    <style is:global>
+      :root {
+        color-scheme: light dark;
+      }
+
+      html {
+        font-family: "Onest Variable", system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: rgba(17, 17, 17, 0.9);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overscroll-behavior: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+
+      #header-nav {
+        animation: blur linear both 0.5s;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+
+      @keyframes blur {
+        to {
+          backdrop-filter: blur(20px);
+          border-width: 1px;
+          border-color: rgba(0, 0, 0);
+          padding: 0.25rem 0.75rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background-color: rgb(229, 229, 229);
+          border-radius: 9999px;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        @keyframes blur {
+          from {
+            border: 0px;
+          }
+          to {
+            box-shadow:
+              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+              0px 0px 0 1px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-width: 1px;
+            border-color: rgba(0, 0, 0);
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 9999px;
+          }
+        }
+      }
+    </style>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

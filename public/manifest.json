@@ -1,0 +1,26 @@
+{
+  "name": "Joan Marqueño - Portfolio",
+  "short_name": "Joan Marqueño",
+  "description": "Desarrollador Full Stack especializado en Python, TypeScript y Azure AI",
+  "start_url": "https://joanmarqueno.vercel.app/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/foto.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "es",
+  "dir": "ltr"
+}

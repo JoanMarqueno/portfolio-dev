@@ -1,0 +1,49 @@
+---
+const personalImageAlt = "Joan Marqueño";
+---
+
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+>
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      Me llamo Joan Marqueño, desarrollador Full Stack con <strong
+        >experiencia en Python, TypeScript, Next.js y Kubernetes</strong
+      >. Actualmente trabajo en INETUM en el proyecto AI4CS, donde desarrollo
+      soluciones basadas en inteligencia artificial para el procesamiento de
+      documentos.
+    </p>
+
+    <p>
+      Mi trabajo incluye <strong
+        >desarrollo de microservicios con Python, APIs con TypeScript/Hono y
+        front-ends con Next.js</strong
+      >. Gestiono despliegues en Azure Kubernetes Service (AKS) con Docker, Helm
+      y CI/CD con Jenkins.
+    </p>
+
+    <p>
+      Como desarrollador independiente, he creado <strong
+        >MysticMe, una aplicación móvil completa con Flutter y Supabase</strong
+      > disponible en Google Play, y Kado Masajes, una página web corporativa con
+      React y TypeScript.
+    </p>
+
+    <p>
+      Soy <strong>Microsoft Certified: Azure AI Engineer Associate</strong> y me
+      apasiona crear soluciones escalables que combinen desarrollo web moderno con
+      inteligencia artificial.
+    </p>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src="/foto.jpeg"
+    alt={personalImageAlt}
+    class="order-1 object-cover w-64 h-full p-1 md:order-2 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+    style="object-position: 50% 50%"
+  />
+</article>
