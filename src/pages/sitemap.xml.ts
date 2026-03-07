@@ -1,11 +1,14 @@
-import type { APIRoute } from 'astro';
+import type { APIRoute } from "astro";
+
+const BASE_URL = "https://joanmarqueno.vercel.app";
 
 export const GET: APIRoute = () => {
+  const lastmod = new Date().toISOString();
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://joanmarqueno.vercel.app/</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
+    <loc>${BASE_URL}/</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +16,7 @@ export const GET: APIRoute = () => {
 
   return new Response(sitemap, {
     headers: {
-      'Content-Type': 'application/xml',
+      "Content-Type": "application/xml",
     },
   });
 };

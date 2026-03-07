@@ -1,11 +1,11 @@
 {
-  "name": "Joan Marqueño - Portfolio",
+  "name": "Joan Marqueño | Full Stack & AI Engineer",
   "short_name": "Joan Marqueño",
-  "description": "Desarrollador Full Stack especializado en Python, TypeScript y Azure AI",
-  "start_url": "https://joanmarqueno.vercel.app/",
+  "description": "Portfolio de Joan Marqueño, desarrollador full stack con experiencia en Python, TypeScript, LLMs, RAG y arquitectura hexagonal.",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3B82F6",
+  "background_color": "#f7f4ec",
+  "theme_color": "#0f766e",
   "orientation": "portrait-primary",
   "icons": [
     {

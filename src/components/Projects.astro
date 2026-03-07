@@ -6,9 +6,15 @@ import Tailwind from "./icons/Tailwind.astro";
 import TypeScript from "./icons/TypeScript.astro";
 import Supabase from "./icons/Supabase.astro";
 import Link from "./icons/Link.astro";
+import NextJS from "./icons/NextJS.astro";
 import LinkButton from "./LinkButton.astro";
 
 const TAGS = {
+  PYTHON: {
+    name: "Python",
+    class: "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900",
+    icon: null,
+  },
   FLUTTER: {
     name: "Flutter",
     class: "bg-[#02569B] text-white",
@@ -34,13 +40,50 @@ const TAGS = {
     class: "bg-[#3ECF8E] text-white",
     icon: Supabase,
   },
+  NEXT: {
+    name: "Next.js",
+    class: "bg-stone-950 text-white dark:bg-stone-100 dark:text-stone-950",
+    icon: NextJS,
+  },
+  LLM: {
+    name: "LLMs",
+    class: "bg-teal-700 text-white dark:bg-teal-300 dark:text-slate-950",
+    icon: null,
+  },
+  RAG: {
+    name: "RAG",
+    class: "bg-amber-600 text-white dark:bg-amber-300 dark:text-slate-950",
+    icon: null,
+  },
+  AZURE: {
+    name: "Azure",
+    class: "bg-sky-700 text-white dark:bg-sky-300 dark:text-slate-950",
+    icon: null,
+  },
 };
 
 const PROJECTS = [
   {
+    eyebrow: "Trabajo actual en Inetum",
+    title: "Plataforma de IDP y generación documental",
+    description:
+      "Dentro de Inetum trabajo en una plataforma enterprise enfocada a procesamiento y generación documental. Participo en backend Python, APIs TypeScript, frontend y diseño técnico para integrar validación, HITL, LLMs, RAG y tool calling sin perder mantenibilidad.",
+    privateProject:
+      "Caso resumido por confidencialidad, pero forma parte directa de mi trabajo actual en Inetum.",
+    tags: [
+      TAGS.PYTHON,
+      TAGS.TYPESCRIPT,
+      TAGS.NEXT,
+      TAGS.LLM,
+      TAGS.RAG,
+      TAGS.AZURE,
+    ],
+  },
+  {
+    eyebrow: "Producto propio",
     title: "MysticMe - Tu Guía Diaria de Tarot y Horóscopo",
     description:
-      "Aplicación móvil completa desarrollada desde cero que guía al usuario en prácticas de meditación y autoconocimiento. Disponible en Google Play con lecturas de tarot diarias, horóscopo personalizado y un diario místico. Incluye autenticación, base de datos SQL y analytics de crashes.",
+      "Aplicación móvil desarrollada desde cero y publicada en Google Play. Incluye autenticación, base de datos, contenido personalizado y una experiencia completa de producto, desde la idea y el desarrollo hasta la publicación.",
     link: "https://mysticme.vercel.app/",
     github: "",
     googlePlay:
@@ -49,9 +92,10 @@ const PROJECTS = [
     tags: [TAGS.FLUTTER, TAGS.SUPABASE],
   },
   {
-    title: "Kado Masajes - Página Web Corporativa",
+    eyebrow: "Proyecto para cliente",
+    title: "Kado Masajes - Web corporativa",
     description:
-      "Sitio web corporativo informativo para un negocio local de masajes terapéuticos. Diseño moderno y responsivo que muestra servicios, información de contacto y datos de la empresa. Desarrollada con las últimas tecnologías web.",
+      "Sitio web corporativo para un negocio local con foco en claridad, conversión y presencia profesional. Diseñado y desarrollado con React, TypeScript y Tailwind para ofrecer una experiencia limpia y responsive.",
     link: "https://kadomasajes.com",
     image: "/kadomasajes.webp",
     tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
@@ -62,62 +106,109 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(
-      ({ image, title, description, tags, link, github, googlePlay }) => (
-        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-          <div class="w-full md:w-1/2">
-            <div class="relative col-span-6 row-span-5 transition duration-500 ease-in-out transform shadow-xl overflow-hidden rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-              <img
-                alt={`Captura de pantalla del proyecto ${title}`}
-                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-                src={image}
-              />
+      ({
+        eyebrow,
+        image,
+        title,
+        description,
+        tags,
+        link,
+        github,
+        googlePlay,
+        privateProject,
+      }) => (
+        <article class="group grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-stretch">
+          <div class="w-full">
+            <div class="relative h-full overflow-hidden rounded-[1.75rem] border border-stone-200/80 bg-white/80 shadow-[0_18px_50px_-32px_rgba(28,25,23,0.35)] transition duration-300 group-hover:-translate-y-1 dark:border-slate-800 dark:bg-slate-950/70">
+              {
+                image ? (
+                  <img
+                    alt={`Captura de pantalla del proyecto ${title}`}
+                    class="h-full min-h-64 w-full object-cover object-top transition duration-500 lg:group-hover:scale-[1.02]"
+                    src={image}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div class="flex h-full min-h-64 flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.18),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(217,119,6,0.18),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.95))] p-8 dark:bg-[radial-gradient(circle_at_top_left,rgba(45,212,191,0.22),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(251,191,36,0.18),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.98),rgba(2,6,23,0.96))]">
+                    <span class="w-fit rounded-full border border-stone-300 bg-white/90 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-stone-600 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300">
+                      Trabajo en Inetum
+                    </span>
+                    <div>
+                      <p class="text-sm uppercase tracking-[0.22em] text-teal-700 dark:text-teal-300">
+                        IA documental
+                      </p>
+                      <h3 class="mt-3 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
+                        Backend, LLMs, APIs y producto enterprise
+                      </h3>
+                      <p class="mt-3 max-w-md text-base leading-7 text-stone-700 dark:text-slate-300">
+                        Python · TypeScript · Azure · RAG · HITL · arquitectura
+                        evolutiva
+                      </p>
+                    </div>
+                  </div>
+                )
+              }
             </div>
           </div>
 
-          <div class="w-full md:w-1/2 md:max-w-lg">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          <div class="w-full lg:max-w-xl">
+            <p class="text-sm font-medium uppercase tracking-[0.24em] text-stone-500 dark:text-slate-400">
+              {eyebrow}
+            </p>
+            <h3 class="mt-3 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
               {title}
             </h3>
-            <div class="flex flex-wrap mt-2">
-              <ul class="flex flex-row mb-2 gap-x-2">
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <ul class="flex flex-wrap gap-2">
                 {tags.map((tag) => (
                   <li>
                     <span
-                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                      class={`inline-flex items-center gap-x-2 rounded-full px-3 py-1 text-xs font-medium ${tag.class}`}
                     >
-                      <tag.icon class="size-4" />
+                      {tag.icon && <tag.icon class="size-4" />}
                       {tag.name}
                     </span>
                   </li>
                 ))}
               </ul>
-
-              <div class="mt-2 text-gray-700 dark:text-gray-400">
-                {description}
-              </div>
-              <footer class="flex items-end justify-start mt-4 gap-x-4">
-                {github && (
-                  <LinkButton href={github}>
-                    <GitHub class="size-6" />
-                    Code
-                  </LinkButton>
-                )}
-                {link && (
-                  <LinkButton href={link}>
-                    <Link class="size-4" />
-                    Preview
-                  </LinkButton>
-                )}
-                {googlePlay && (
-                  <LinkButton href={googlePlay}>
-                    <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                    </svg>
-                    Google Play
-                  </LinkButton>
-                )}
-              </footer>
             </div>
+
+            <div class="mt-4 text-base leading-7 text-stone-700 dark:text-slate-300">
+              {description}
+            </div>
+
+            {
+              privateProject && (
+                <p class="mt-4 rounded-2xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-900 dark:border-amber-900/70 dark:bg-amber-950/40 dark:text-amber-100">
+                  {privateProject}
+                </p>
+              )
+            }
+
+            <footer class="mt-6 flex flex-wrap items-end justify-start gap-3">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-5" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+              {googlePlay && (
+                <LinkButton href={googlePlay}>
+                  <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                  </svg>
+                  Google Play
+                </LinkButton>
+              )}
+            </footer>
           </div>
         </article>
       )

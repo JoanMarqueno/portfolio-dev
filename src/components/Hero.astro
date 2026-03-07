@@ -5,49 +5,161 @@ import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import GitHubIcon from "@/components/icons/GitHub.astro";
 import SocialPill from "@/components/SocialPill.astro";
+
+const SPECIALTIES = [
+  "Python",
+  "TypeScript",
+  "LLMs",
+  "RAG",
+  "Arquitectura hexagonal",
+  "Azure",
+  "AKS",
+  "Next.js",
+];
+
+const SNAPSHOT = [
+  {
+    label: "Experiencia",
+    value: "3+ años",
+    detail: "Desarrollando software y producto con impacto real",
+  },
+  {
+    label: "Core stack",
+    value: "Python + TS",
+    detail: "Backend, APIs, frontend e integración",
+  },
+  {
+    label: "IA aplicada",
+    value: "LLMs y RAG",
+    detail: "Document AI, validación, tools y automatización",
+  },
+  {
+    label: "Entrega",
+    value: "Azure + AKS",
+    detail: "Cloud, despliegue, observabilidad y operativa",
+  },
+];
+
+const VALUE_POINTS = [
+  "Desarrollo soluciones end-to-end: backend, APIs, frontend e integración de IA.",
+  "Trabajo hoy en IDP, generación documental con LLMs y evolución de servicios Python hacia arquitectura hexagonal.",
+  "Aporto criterio de producto: participo en el diseño de la solución, no solo en la implementación.",
+];
 ---
 
-<div class="max-w-xl">
-  <div class="flex gap-4 mb-4">
-    <img
-      class="rounded-full shadow-lg size-16"
-      src="/foto.jpeg"
-      alt={personalImageAlt}
-    />
-    <a
-      href="https://linkedin.com/in/joanmarqueno"
-      target="_blank"
-      rel="noopener"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
-    >
-      <Badge>Disponible para trabajar</Badge>
-    </a>
+<div class="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-start">
+  <div class="max-w-2xl">
+    <div class="mb-6 flex flex-wrap items-center gap-4">
+      <img
+        class="size-20 rounded-[1.5rem] border border-stone-200/80 object-cover shadow-[0_16px_40px_-24px_rgba(28,25,23,0.45)] dark:border-slate-800"
+        src="/foto.jpeg"
+        alt={personalImageAlt}
+        width="80"
+        height="80"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="space-y-2">
+        <a
+          href="#contacto"
+          class="inline-flex items-center transition hover:scale-[1.01]"
+        >
+          <Badge>Abierto a nuevas oportunidades</Badge>
+        </a>
+        <p class="text-sm uppercase tracking-[0.24em] text-stone-500 dark:text-slate-400">
+          Tarragona, España · Full Stack · AI Engineer
+        </p>
+      </div>
+    </div>
+
+    <h1 class="text-4xl font-semibold tracking-tight text-stone-900 sm:text-6xl dark:text-stone-50">
+      Joan Marqueño, desarrollador Full Stack con foco en IA aplicada
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-xl leading-9 text-stone-700 dark:text-slate-300">
+      <strong class="font-semibold text-stone-900 dark:text-stone-50">
+        3+ años construyendo producto con Python y TypeScript.
+      </strong>
+      {" "}Trabajo en soluciones documentales donde hay que unir backend, APIs,
+      frontend y modelos de IA para resolver problemas reales de negocio.
+    </p>
+
+    <p class="mt-4 max-w-2xl text-lg leading-8 text-stone-700 dark:text-slate-300">
+      Actualmente estoy en proyectos de IDP, generación documental con LLMs y
+      evolución de servicios Python hacia arquitectura hexagonal, colaborando
+      también en el diseño técnico de soluciones con RAG, tools y enfoques
+      multiagente.
+    </p>
+
+    <ul class="mt-8 flex flex-wrap gap-2">
+      {
+        SPECIALTIES.map((specialty) => (
+          <li class="rounded-full border border-stone-200 bg-white/85 px-3 py-1 text-sm font-medium text-stone-700 shadow-sm shadow-stone-900/5 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300">
+            {specialty}
+          </li>
+        ))
+      }
+    </ul>
+
+    <nav class="mt-8 flex flex-wrap gap-3">
+      <SocialPill href="mailto:joan.marquenyo@gmail.com">
+        <MailIcon class="size-4" />
+        Contacto directo
+      </SocialPill>
+      <SocialPill href="https://linkedin.com/in/joanmarqueno">
+        <LinkedInIcon class="size-4" />
+        LinkedIn
+      </SocialPill>
+      <SocialPill href="https://github.com/JoanMarqueno">
+        <GitHubIcon class="size-4" />
+        GitHub
+      </SocialPill>
+    </nav>
   </div>
-  <h1
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-  >
-    Hey, soy Joan Marqueño
-  </h1>
-  <p
-    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-  >
-    +2 años de experiencia. <strong
-      >Desarrollador Full Stack especializado en Python y TypeScript</strong
-    > de Tarragona, España 🇪🇸. Especializado en aplicaciones cloud escalables con
-    microservicios e inteligencia artificial (Certificado en Azure AI).
-  </p>
-  <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="mailto:joan.marquenyo@gmail.com">
-      <MailIcon class="size-4" />
-      Contáctame
-    </SocialPill>
-    <SocialPill href="https://linkedin.com/in/joanmarqueno">
-      <LinkedInIcon class="size-4" />
-      LinkedIn
-    </SocialPill>
-    <SocialPill href="https://github.com/JoanMarqueno">
-      <GitHubIcon class="size-4" />
-      GitHub
-    </SocialPill>
-  </nav>
+
+  <aside class="relative overflow-hidden rounded-[2rem] border border-stone-200/80 bg-white/80 p-7 shadow-[0_22px_60px_-36px_rgba(28,25,23,0.42)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/75">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.14),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(217,119,6,0.14),transparent_34%)]"></div>
+
+    <div class="relative">
+      <p class="text-sm font-medium uppercase tracking-[0.24em] text-teal-700 dark:text-teal-300">
+        Propuesta de valor
+      </p>
+      <h2 class="mt-3 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
+        Ingeniería de software e IA sin vivir en dos mundos separados
+      </h2>
+
+      <ul class="mt-6 space-y-3">
+        {
+          VALUE_POINTS.map((point) => (
+            <li class="flex gap-3 rounded-2xl border border-stone-200/80 bg-stone-50/80 px-4 py-4 text-sm leading-6 text-stone-700 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-300">
+              <span class="mt-2 size-2 rounded-full bg-teal-600 dark:bg-teal-300"></span>
+              <span>{point}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-7 grid gap-3 sm:grid-cols-2">
+        {
+          SNAPSHOT.map(({ label, value, detail }) => (
+            <article class="rounded-2xl border border-stone-200/80 bg-white/90 p-4 dark:border-slate-800 dark:bg-slate-900/80">
+              <p class="text-xs uppercase tracking-[0.18em] text-stone-500 dark:text-slate-400">
+                {label}
+              </p>
+              <p class="mt-2 text-xl font-semibold text-stone-900 dark:text-stone-50">
+                {value}
+              </p>
+              <p class="mt-2 text-sm leading-6 text-stone-600 dark:text-slate-400">
+                {detail}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-6 rounded-2xl border border-amber-200/80 bg-amber-50/80 px-4 py-4 text-sm leading-6 text-amber-900 dark:border-amber-900/70 dark:bg-amber-950/40 dark:text-amber-100">
+        Microsoft Certified: Azure AI Engineer Associate
+      </div>
+    </div>
+  </aside>
 </div>

@@ -1,18 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://joanmarqueno.vercel.app/sitemap-index.xml
-
-# Crawl-delay
-Crawl-delay: 1
-
-# Disallow admin areas (if any)
-Disallow: /admin/
-Disallow: /private/
-
-# Allow all other content
-Allow: /public/
-Allow: /images/
-Allow: /css/
-Allow: /js/
+Sitemap: https://joanmarqueno.vercel.app/sitemap.xml

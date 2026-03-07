@@ -5,29 +5,41 @@ import AboutMe from "@/components/AboutMe.astro";
 import Briefcase from "@/components/icons/Briefcase.astro";
 import CodeIcon from "@/components/icons/Code.astro";
 import Experience from "@/components/Experience.astro";
+import FocusAreas from "@/components/FocusAreas.astro";
+import MailIcon from "@/components/icons/Mail.astro";
 import ProfileCheck from "@/components/icons/ProfileCheck.astro";
 import Projects from "@/components/Projects.astro";
+import RecruiterCTA from "@/components/RecruiterCTA.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Hero from "@/components/Hero.astro";
+import SystemIcon from "@/components/icons/System.astro";
 import TitleSection from "@/components/TitleSection.astro";
 ---
 
 <Layout
-  title="Joan Marqueño - Desarrollador Full Stack | Python, TypeScript & Azure AI"
-  description="Desarrollador Full Stack con +2 años de experiencia especializado en Python, TypeScript y Azure AI. Experto en aplicaciones cloud escalables con microservicios e inteligencia artificial. Disponible para proyectos en Tarragona, España."
+  title="Joan Marqueño | Full Stack & AI Engineer | Python, TypeScript y LLMs"
+  description="Desarrollador Full Stack con 3+ años creando producto con Python, TypeScript e IA generativa. Experiencia en IDP, LLMs, RAG, APIs, frontend y arquitectura hexagonal."
   image="/foto.jpeg"
-  url="https://joanmarqueno.dev"
   type="profile"
 >
   <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
+    <SectionContainer class="py-20 md:py-32">
       <Hero />
     </SectionContainer>
-    <div class="space-y-24">
+
+    <div class="space-y-24 pb-8">
+      <SectionContainer id="especialidades">
+        <TitleSection>
+          <SystemIcon class="size-7" />
+          Especialidades
+        </TitleSection>
+        <FocusAreas />
+      </SectionContainer>
+
       <SectionContainer id="experiencia">
         <TitleSection>
           <Briefcase class="size-8" />
-          Experiencia laboral
+          Experiencia
         </TitleSection>
         <Experience />
       </SectionContainer>
@@ -46,6 +58,14 @@ import TitleSection from "@/components/TitleSection.astro";
           Sobre mí
         </TitleSection>
         <AboutMe />
+      </SectionContainer>
+
+      <SectionContainer id="contacto" class="pb-10">
+        <TitleSection>
+          <MailIcon class="size-7" />
+          Contacto
+        </TitleSection>
+        <RecruiterCTA />
       </SectionContainer>
     </div>
   </main>

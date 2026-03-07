@@ -4,26 +4,26 @@ import ExperienceItem from "./ExperienceItem.astro";
 const EXPERIENCE = [
   {
     date: "Junio 2023 - Presente",
-    title: "Desarrollador Full Stack (Python & TypeScript)",
-    company: "INETUM – Proyecto AI4CS",
+    title: "Desarrollador Full Stack (Python, TypeScript e IA aplicada)",
+    company: "INETUM - IDP y generación documental con LLMs",
     description: [
-      "Desarrollé microservicios en Python para OCR, clasificación de documentos, validación, anonimización y orquestación comunicados mediante RabbitMQ",
-      "Construí librerías internas reutilizables para Azure Document Intelligence, Azure Language, Azure Storage y OpenAI",
-      "Diseñé y desarrollé APIs REST con Hono + TypeScript, implementando validación con Zod y documentación OpenAPI/Swagger con autenticación Keycloak",
-      "Implementé front-ends en Next.js + Tailwind, incluyendo dashboards de extracción, visualización de steps y portal de administración de clientes",
-      "Gestioné despliegues en Azure Kubernetes Service (AKS) con Docker, Helm, ConfigMaps, Secrets y Vault, monitorizando con Lens y Grafana",
-      "Establecí pipelines CI/CD con Jenkins para integración con Azure y despliegues automáticos de imágenes Docker",
-      "Administré bases de datos PostgreSQL en Azure, gestionando modelos y migraciones",
+      "Desarrollo y evoluciono microservicios en Python para extracción, validación, procesamiento y orquestación documental, aplicando paralelización para reducir tiempos de proceso.",
+      "Participo en la evolución de servicios Python hacia arquitectura hexagonal, refactorizando piezas del sistema para separar dominio e integraciones y facilitar su mantenimiento.",
+      "Diseñé mecanismos de validación para mejorar precisión y reducir alucinaciones, comparando OCR, reglas de negocio y respuestas generadas por LLMs.",
+      "Construí librerías internas reutilizables para Azure Document Intelligence, Azure Language, Azure Storage y OpenAI, acelerando nuevas integraciones dentro del equipo.",
+      "Diseñé APIs REST con Hono + TypeScript y frontends con Next.js para flujos multi-tenant, procesos HITL y consumo externo de la plataforma.",
+      "Colaboro en una solución de generación documental con LLMs, participando en el diseño e implementación de APIs, frontend, RAG, tools y enfoques multiagente.",
+      "Gestiono despliegues en Azure Kubernetes Service (AKS) con Docker, Helm y Jenkins, manteniendo observabilidad y operativa con Grafana.",
     ],
     link: "https://www.inetum.com/",
   },
 ];
 ---
 
-<ol class="relative mt-16">
+<ol class="relative mt-10">
   {
     EXPERIENCE.map((experience) => (
-      <li class="">
+      <li>
         <ExperienceItem {...experience} />
       </li>
     ))
