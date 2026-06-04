@@ -28,7 +28,7 @@ const personId = `${siteUrl.toString()}#person`;
 const websiteId = `${siteUrl.toString()}#website`;
 
 const personDescription =
-  "Desarrollador Full Stack con 3+ años de experiencia construyendo producto con Python, TypeScript e IA aplicada. Experiencia en IDP, LLMs, RAG, APIs, frontend, Azure y arquitectura hexagonal.";
+  "Developer Python con 3+ años en plataforma IDP enterprise: +30 clientes, +1M documentos. Agentes con tool calling, RabbitMQ, KEDA, LangChain, Azure OpenAI, Kubernetes y arquitectura hexagonal.";
 
 const sameAs = [
   "https://linkedin.com/in/joanmarqueno",
@@ -58,7 +58,7 @@ const personStructuredData = {
   image: absoluteImage,
   description: personDescription,
   email: "mailto:joan.marquenyo@gmail.com",
-  jobTitle: "Full Stack Developer & AI Engineer",
+  jobTitle: "Developer · Python & IA Aplicada",
   worksFor: {
     "@type": "Organization",
     name: "Inetum",
@@ -75,15 +75,26 @@ const personStructuredData = {
   knowsAbout: [
     "Python",
     "TypeScript",
-    "Generative AI",
+    "Software Development",
     "LLMs",
-    "RAG",
+    "AI Agents",
+    "Tool Calling",
+    "LangChain",
+    "Structured Outputs",
+    "Whisper",
     "Document AI",
-    "Arquitectura hexagonal",
-    "Azure",
-    "AKS",
+    "RAG",
+    "Kubernetes",
+    "KEDA",
+    "RabbitMQ",
+    "Redis",
+    "Keycloak",
+    "Azure OpenAI",
+    "Azure AI Search",
+    "AWS",
+    "Hono",
     "Next.js",
-    "APIs",
+    "PostgreSQL",
   ],
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
@@ -219,11 +230,7 @@ const kadoStructuredData = {
     />
   </head>
 
-  <body class="relative min-h-screen bg-transparent text-stone-900 antialiased dark:text-stone-100">
-    <div
-      class="pointer-events-none absolute inset-0 z-[-2] min-h-screen w-full bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.15),transparent_28%),radial-gradient(circle_at_top_right,rgba(245,158,11,0.16),transparent_22%),linear-gradient(180deg,rgba(247,244,236,1),rgba(247,244,236,0.98))] dark:bg-[radial-gradient(circle_at_top_left,rgba(45,212,191,0.14),transparent_32%),radial-gradient(circle_at_top_right,rgba(251,191,36,0.12),transparent_24%),linear-gradient(180deg,rgba(2,6,23,1),rgba(15,23,42,0.98))]"
-    >
-    </div>
+  <body class="min-h-screen bg-[var(--page-bg)] text-stone-900 antialiased dark:text-stone-100">
     <Header />
     <slot />
     <Footer />

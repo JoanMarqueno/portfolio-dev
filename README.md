@@ -15,9 +15,15 @@ This site is focused on positioning my profile for Full Stack, Backend Python an
 
 - Clear positioning around Python, TypeScript and Applied AI
 - Recruiter-focused experience and project sections
-- Responsive UI for desktop, tablet and mobile
+- Responsive navigation with mobile menu
 - SEO improvements with canonical tags, sitemap, robots and structured data
 - Project highlights including MysticMe and Kado Masajes
+
+Add or update your CV source in `cv/cv-joan.json` and `cv/cv-joan.tex`, then rebuild:
+
+```bash
+cd cv && pdflatex cv-joan.tex && pdflatex cv-joan.tex && cp cv-joan.pdf ../public/cv-joan-marqueno.pdf
+```
 
 ## Local development
 

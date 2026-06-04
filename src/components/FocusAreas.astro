@@ -1,96 +1,52 @@
 ---
 const AREAS = [
   {
-    title: "Python backend y arquitectura evolutiva",
+    title: "Microservicios y orquestación",
     description:
-      "Desarrollo servicios y APIs en Python pensando en mantenibilidad real: separación de dominio, integraciones limpias y evolución progresiva hacia arquitectura hexagonal.",
-    tags: ["Python", "Microservicios", "Arquitectura hexagonal"],
+      "+20 servicios Python especializados consumidos vía RabbitMQ: OCR, clasificación, extracción GPT, validación, anonimización, Whisper y flujos configurables.",
+    tags: ["Python", "RabbitMQ", "Whisper", "Document AI"],
   },
   {
-    title: "LLMs, RAG y automatización documental",
+    title: "Agentes LLM en producción",
     description:
-      "Trabajo en casos de uso donde la IA tiene que aterrizar en producto: extracción documental, generación de documentos, validación de respuestas, RAG, tools y enfoques multiagente.",
-    tags: ["LLMs", "RAG", "Document AI"],
+      "Tool calling con LangChain, structured outputs strict mode, esquemas dinámicos por tipo documental y HITL cuando la confianza no alcanza el umbral.",
+    tags: ["Tool calling", "HITL", "LangChain", "Azure OpenAI"],
   },
   {
-    title: "Entrega full stack de extremo a extremo",
+    title: "Escala y fiabilidad",
     description:
-      "Puedo moverme entre backend, API y frontend sin perder contexto de negocio. Diseño interfaces, contrato APIs y aterrizo flujos completos para usuarios internos o clientes.",
-    tags: ["TypeScript", "Next.js", "Hono"],
+      "KEDA, tenant isolation, Redis para distributed locking, observabilidad de costes de tokens y resolución de incidentes reales en producción.",
+    tags: ["KEDA", "Redis", "Kubernetes", "On-premise"],
   },
   {
-    title: "Cloud, despliegue y operativa",
+    title: "Plataforma multi-cloud",
     description:
-      "He trabajado con Azure, AKS, Docker, Helm, Jenkins y observabilidad para llevar soluciones a producción con criterio de operativa y continuidad.",
-    tags: ["Azure", "AKS", "CI/CD"],
+      "Despliegue en Azure, AWS y on-premise con Keycloak y configuración por cliente. +30 clientes activos y +200k documentos/mes.",
+    tags: ["Azure", "AWS", "Keycloak", "Hexagonal"],
   },
-];
-
-const SEARCH_TERMS = [
-  "Full Stack Developer",
-  "AI Engineer",
-  "Python Developer",
-  "TypeScript Developer",
-  "Generative AI",
-  "LLM Engineer",
-  "RAG",
-  "Arquitectura hexagonal",
-  "Azure AI",
-  "AKS",
-  "Document AI",
-  "Next.js",
 ];
 ---
 
-<div class="space-y-6">
-  <div class="grid gap-4 md:grid-cols-2">
-    {
-      AREAS.map(({ title, description, tags }) => (
-        <article class="rounded-[1.75rem] border border-stone-200/80 bg-white/75 p-6 shadow-[0_18px_50px_-32px_rgba(28,25,23,0.35)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
-          <div class="flex items-center gap-3">
-            <span class="size-2 rounded-full bg-teal-600 dark:bg-teal-300"></span>
-            <h3 class="text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
-              {title}
-            </h3>
-          </div>
+<div class="grid gap-4 md:grid-cols-2">
+  {
+    AREAS.map(({ title, description, tags }) => (
+      <article class="rounded-xl border border-stone-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950">
+        <h3 class="text-lg font-semibold tracking-tight text-stone-900 dark:text-stone-50">
+          {title}
+        </h3>
 
-          <p class="mt-4 text-base leading-7 text-stone-700 dark:text-slate-300">
-            {description}
-          </p>
+        <p class="mt-3 text-base leading-7 text-stone-700 dark:text-slate-300">
+          {description}
+        </p>
 
-          <ul class="mt-5 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <li class="rounded-full border border-stone-200 bg-stone-100/80 px-3 py-1 text-sm text-stone-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
-                {tag}
-              </li>
-            ))}
-          </ul>
-        </article>
-      ))
-    }
-  </div>
-
-  <aside class="rounded-[1.75rem] border border-stone-200/80 bg-white/75 p-6 shadow-[0_18px_50px_-32px_rgba(28,25,23,0.35)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
-    <p class="text-sm font-medium uppercase tracking-[0.24em] text-teal-700 dark:text-teal-300">
-      SEO semántico
-    </p>
-    <h3 class="mt-3 text-2xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
-      Términos por los que tiene sentido que me encuentren
-    </h3>
-    <p class="mt-3 max-w-3xl text-base leading-7 text-stone-700 dark:text-slate-300">
-      Estas frases reflejan el tipo de trabajo que ya hago y el tipo de rol en
-      el que puedo aportar valor hoy: ingeniería de software con IA aplicada,
-      backend Python, APIs, frontend y producto.
-    </p>
-
-    <ul class="mt-5 flex flex-wrap gap-2">
-      {
-        SEARCH_TERMS.map((term) => (
-          <li class="rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-sm font-medium text-teal-800 dark:border-teal-900/70 dark:bg-teal-950/50 dark:text-teal-200">
-            {term}
-          </li>
-        ))
-      }
-    </ul>
-  </aside>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li class="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-xs text-stone-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))
+  }
 </div>

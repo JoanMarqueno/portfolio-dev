@@ -60,30 +60,40 @@ const TAGS = {
     class: "bg-sky-700 text-white dark:bg-sky-300 dark:text-slate-950",
     icon: null,
   },
+  K8S: {
+    name: "Kubernetes",
+    class: "bg-indigo-700 text-white dark:bg-indigo-300 dark:text-slate-950",
+    icon: null,
+  },
+  AGENTS: {
+    name: "Agentes",
+    class: "bg-violet-700 text-white dark:bg-violet-300 dark:text-slate-950",
+    icon: null,
+  },
 };
 
 const PROJECTS = [
   {
-    eyebrow: "Trabajo actual en Inetum",
-    title: "Plataforma de IDP y generación documental",
+    eyebrow: "Trabajo actual · 2023 – Actualidad",
+    title: "Plataforma IDP · IIM-AI4CS",
     description:
-      "Dentro de Inetum trabajo en una plataforma enterprise enfocada a procesamiento y generación documental. Participo en backend Python, APIs TypeScript, frontend y diseño técnico para integrar validación, HITL, LLMs, RAG y tool calling sin perder mantenibilidad.",
+      "Plataforma IDP enterprise en Azure, AWS y on-premise: +30 clientes, +200k documentos/mes y contratos de hasta 2M docs/año. +20 microservicios Python, agentes con tool calling, KEDA, HITL y arquitectura hexagonal.",
     privateProject:
-      "Caso resumido por confidencialidad, pero forma parte directa de mi trabajo actual en Inetum.",
+      "Caso resumido por confidencialidad; refleja mi trabajo diario en Inetum.",
     tags: [
       TAGS.PYTHON,
       TAGS.TYPESCRIPT,
-      TAGS.NEXT,
-      TAGS.LLM,
+      TAGS.K8S,
+      TAGS.AGENTS,
       TAGS.RAG,
-      TAGS.AZURE,
+      TAGS.NEXT,
     ],
   },
   {
-    eyebrow: "Producto propio",
+    eyebrow: "Producto propio · 2023 – Actualidad",
     title: "MysticMe - Tu Guía Diaria de Tarot y Horóscopo",
     description:
-      "Aplicación móvil desarrollada desde cero y publicada en Google Play. Incluye autenticación, base de datos, contenido personalizado y una experiencia completa de producto, desde la idea y el desarrollo hasta la publicación.",
+      "App de tarot y horóscopo end-to-end, publicada en Google Play. Flutter · Supabase · Firebase Crashlytics. Crecimiento con TikTok/CapCut.",
     link: "https://mysticme.vercel.app/",
     github: "",
     googlePlay:
@@ -92,7 +102,7 @@ const PROJECTS = [
     tags: [TAGS.FLUTTER, TAGS.SUPABASE],
   },
   {
-    eyebrow: "Proyecto para cliente",
+    eyebrow: "Proyecto para cliente · 2024",
     title: "Kado Masajes - Web corporativa",
     description:
       "Sitio web corporativo para un negocio local con foco en claridad, conversión y presencia profesional. Diseñado y desarrollado con React, TypeScript y Tailwind para ofrecer una experiencia limpia y responsive.",
@@ -103,7 +113,7 @@ const PROJECTS = [
 ];
 ---
 
-<div class="flex flex-col gap-y-16">
+<div class="flex flex-col gap-y-12">
   {
     PROJECTS.map(
       ({
@@ -117,33 +127,32 @@ const PROJECTS = [
         googlePlay,
         privateProject,
       }) => (
-        <article class="group grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-stretch">
+        <article class="group grid gap-6 lg:grid-cols-2 lg:items-stretch">
           <div class="w-full">
-            <div class="relative h-full overflow-hidden rounded-[1.75rem] border border-stone-200/80 bg-white/80 shadow-[0_18px_50px_-32px_rgba(28,25,23,0.35)] transition duration-300 group-hover:-translate-y-1 dark:border-slate-800 dark:bg-slate-950/70">
+            <div class="relative h-full overflow-hidden rounded-xl border border-stone-200 bg-white dark:border-slate-800 dark:bg-slate-950">
               {
                 image ? (
                   <img
                     alt={`Captura de pantalla del proyecto ${title}`}
-                    class="h-full min-h-64 w-full object-cover object-top transition duration-500 lg:group-hover:scale-[1.02]"
+                    class="h-full min-h-56 w-full object-cover object-top"
                     src={image}
                     loading="lazy"
                     decoding="async"
                   />
                 ) : (
-                  <div class="flex h-full min-h-64 flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.18),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(217,119,6,0.18),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.95))] p-8 dark:bg-[radial-gradient(circle_at_top_left,rgba(45,212,191,0.22),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(251,191,36,0.18),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.98),rgba(2,6,23,0.96))]">
-                    <span class="w-fit rounded-full border border-stone-300 bg-white/90 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-stone-600 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300">
+                  <div class="flex h-full min-h-56 flex-col justify-between border-l-4 border-teal-600 bg-stone-50 p-6 dark:border-teal-400 dark:bg-slate-900">
+                    <span class="w-fit rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-medium uppercase tracking-wide text-stone-600 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-400">
                       Trabajo en Inetum
                     </span>
                     <div>
-                      <p class="text-sm uppercase tracking-[0.22em] text-teal-700 dark:text-teal-300">
+                      <p class="text-sm uppercase tracking-wide text-teal-700 dark:text-teal-300">
                         IA documental
                       </p>
-                      <h3 class="mt-3 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
-                        Backend, LLMs, APIs y producto enterprise
+                      <h3 class="mt-2 text-2xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
+                        +30 clientes · +200k docs/mes
                       </h3>
-                      <p class="mt-3 max-w-md text-base leading-7 text-stone-700 dark:text-slate-300">
-                        Python · TypeScript · Azure · RAG · HITL · arquitectura
-                        evolutiva
+                      <p class="mt-2 max-w-md text-sm leading-7 text-stone-700 dark:text-slate-300">
+                        Python · RabbitMQ · KEDA · LangChain · HITL
                       </p>
                     </div>
                   </div>
@@ -153,10 +162,10 @@ const PROJECTS = [
           </div>
 
           <div class="w-full lg:max-w-xl">
-            <p class="text-sm font-medium uppercase tracking-[0.24em] text-stone-500 dark:text-slate-400">
+            <p class="text-sm font-medium text-stone-500 dark:text-slate-400">
               {eyebrow}
             </p>
-            <h3 class="mt-3 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
+            <h3 class="mt-2 text-2xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
               {title}
             </h3>
 
@@ -181,7 +190,7 @@ const PROJECTS = [
 
             {
               privateProject && (
-                <p class="mt-4 rounded-2xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-900 dark:border-amber-900/70 dark:bg-amber-950/40 dark:text-amber-100">
+                <p class="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100">
                   {privateProject}
                 </p>
               )

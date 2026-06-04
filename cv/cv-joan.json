@@ -1,0 +1,88 @@
+{
+  "name": "Joan Marqueño Sureda",
+  "title": "Developer · Python · LLMs · Agentes · Kubernetes",
+  "contact": {
+    "email": "joan.marquenyo@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/joanmarqueno",
+    "github": "https://github.com/JoanMarqueno",
+    "location": "Tarragona, España"
+  },
+  "skillsBar": [
+    "Python",
+    "TypeScript",
+    "LangChain",
+    "Azure OpenAI",
+    "RabbitMQ",
+    "Kubernetes",
+    "KEDA",
+    "Redis",
+    "PostgreSQL",
+    "pgvector",
+    "Docker",
+    "Azure",
+    "AWS",
+    "Hono",
+    "Next.js",
+    "Flutter"
+  ],
+  "summary": "Developer especializado en Python y sistemas LLM en producción. 3+ años construyendo una plataforma IDP enterprise con +30 clientes activos, +1M de documentos procesados y contratos de hasta 2M de documentos anuales. Experiencia real en agentes con tool calling, orquestación event-driven, resolución de problemas de producción y arquitectura hexagonal en Kubernetes (Azure, AWS y on-premise).",
+  "experience": [
+    {
+      "company": "INETUM",
+      "location": "Tarragona, España",
+      "project": "IIM-AI4CS",
+      "role": "Developer — Python & IA Aplicada",
+      "period": "Jun 2023 – Actualidad",
+      "bullets": [
+        "Diseñé e implementé +20 microservicios Python especializados orquestados por un manager de flujos configurables y consumidos vía RabbitMQ: OCR, clasificación con Document Intelligence y LLM, extracción con GPT y tool calling, validación simple y cruzada, anonimización, transcripción multimedia con Whisper y conversión de formato.",
+        "Agente GPT en producción con tool calling (crop de imagen, Bing Grounding vía LangChain) y structured outputs con strict mode y esquemas dinámicos por tipo documental; flujo HITL completo cuando las validaciones no superan el umbral de confianza.",
+        "Resolví problemas reales de producción: token overflow por imágenes acumuladas en historial de agente, timeouts en lotes grandes, race conditions entre pods con distributed locking en Redis, y rate limits de Azure OpenAI con retry exponencial cogiendo el retry-after del header.",
+        "Escalado automático con KEDA basado en profundidad de cola RabbitMQ, tenant isolation con colas y scalers dedicados por cliente, y observabilidad de costes de tokens por proyecto, modelo y servicio con dashboard propio y capping por variable de entorno.",
+        "Plataforma desplegada en Azure, AWS y on-premise con arquitectura hexagonal, Kubernetes, Keycloak y configuración por cliente: +30 clientes activos, +200.000 documentos/mes, contratos de hasta 2M de documentos anuales.",
+        "RAG en MVP de gestión documental: chunking semántico con enriquecimiento de keywords y resumen, búsqueda vectorial con Azure AI Search y evaluación con golden datasets."
+      ]
+    },
+    {
+      "company": "PANDORA",
+      "location": "Barcelona / Tarragona, España",
+      "role": "Assistant / Store / Multi Store Manager",
+      "period": "Oct 2017 – Ago 2022",
+      "bullets": [
+        "Liderazgo de equipos, KPIs y gestión operativa bajo presión — experiencia hoy aplicada al trabajo con producto y negocio en proyectos de IA enterprise."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "MysticMe",
+      "period": "2023 – Actualidad",
+      "label": "App móvil publicada en Google Play",
+      "description": "App de tarot y horóscopo desarrollada end-to-end de forma independiente. Flutter · Dart · Supabase · Firebase Crashlytics. Estrategia de crecimiento con TikTok/CapCut."
+    },
+    {
+      "name": "Kado Masajes",
+      "period": "2024",
+      "label": "Web corporativa",
+      "description": "Web orientada a captación de contactos. React · TypeScript · Tailwind CSS · Vite."
+    }
+  ],
+  "education": {
+    "degree": "CFGS Desarrollo de Aplicaciones Multiplataforma",
+    "period": "2022 – 2024",
+    "institution": "Institut Francesc Vidal i Barraquer",
+    "note": "Nota: 9,80 — Matrícula de Honor"
+  },
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure AI Engineer Associate",
+      "date": "Junio 2024"
+    }
+  ],
+  "skills": {
+    "ai": "LLMs, tool calling, structured outputs, HITL, visión multimodal, Whisper, LangChain, Azure OpenAI, Document Intelligence, RAG, pgvector",
+    "backend": "Python, TypeScript, Hono, Zod, OpenAPI/Swagger, RabbitMQ, Redis, Peewee, Drizzle",
+    "cloud": "Kubernetes, KEDA, Azure, AWS, on-premise, Docker, Helm, Jenkins, Grafana, Keycloak",
+    "frontend": "Next.js, React, Tailwind CSS, Flutter",
+    "languages": "Español y catalán nativos · Inglés conversacional"
+  }
+}

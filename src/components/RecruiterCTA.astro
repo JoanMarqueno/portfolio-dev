@@ -5,56 +5,56 @@ import MailIcon from "@/components/icons/Mail.astro";
 import GitHubIcon from "@/components/icons/GitHub.astro";
 
 const FIT_POINTS = [
-  "Equipos que necesiten unir backend Python, APIs TypeScript y producto real en una sola persona.",
-  "Proyectos de IA aplicada donde haya que aterrizar LLMs, RAG, tools o automatización documental con criterio de software.",
-  "Contextos donde haga falta evolucionar una base existente y refactorizar sin perder ritmo de entrega.",
+  "Plataformas IDP/LLM en producción con Python, Kubernetes y escala real (+clientes, +volumen).",
+  "Perfiles backend/IA con experiencia resolviendo incidentes, costes y fiabilidad.",
+  "Equipos que valoren arquitectura hexagonal, event-driven y entrega multi-cloud.",
 ];
 ---
 
-<div class="relative overflow-hidden rounded-[2rem] border border-stone-200/80 bg-white/80 p-8 shadow-[0_22px_60px_-36px_rgba(28,25,23,0.42)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/75">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.12),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(217,119,6,0.14),transparent_30%)]"></div>
+<div
+  class="max-w-3xl rounded-xl border border-stone-200 bg-white p-6 md:p-8 dark:border-slate-800 dark:bg-slate-950"
+>
+  <h3 class="text-2xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
+    Busco retos donde la IA se convierta en producto utilizable
+  </h3>
+  <p class="mt-3 text-base leading-7 text-stone-700 dark:text-slate-300">
+    Me interesan roles de full stack, backend Python o AI engineering con
+    arquitectura, integración de modelos y entrega end-to-end.
+  </p>
 
-  <div class="relative grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-    <div>
-      <p class="text-sm font-medium uppercase tracking-[0.24em] text-teal-700 dark:text-teal-300">
-        Contacto
-      </p>
-      <h3 class="mt-3 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
-        Busco retos donde la IA tenga que convertirse en producto utilizable
-      </h3>
-      <p class="mt-4 max-w-2xl text-lg leading-8 text-stone-700 dark:text-slate-300">
-        Me interesan especialmente roles de full stack, backend Python o AI
-        engineering donde pueda aportar en arquitectura, integración de modelos,
-        experiencia de usuario y entrega de extremo a extremo.
-      </p>
-    </div>
+  <ul class="mt-6 space-y-2">
+    {
+      FIT_POINTS.map((point) => (
+        <li class="flex gap-3 text-sm leading-6 text-stone-700 dark:text-slate-300">
+          <span
+            class="mt-2 size-1.5 shrink-0 rounded-full bg-teal-600 dark:bg-teal-400"
+            aria-hidden="true"
+          />
+          <span>{point}</span>
+        </li>
+      ))
+    }
+  </ul>
 
-    <div class="space-y-5">
-      <ul class="space-y-3">
-        {
-          FIT_POINTS.map((point) => (
-            <li class="flex gap-3 rounded-2xl border border-stone-200/80 bg-stone-50/80 px-4 py-4 text-sm leading-6 text-stone-700 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-300">
-              <span class="mt-2 size-2 rounded-full bg-amber-500 dark:bg-amber-300"></span>
-              <span>{point}</span>
-            </li>
-          ))
-        }
-      </ul>
-
-      <nav class="flex flex-wrap gap-3">
-        <SocialPill href="mailto:joan.marquenyo@gmail.com">
-          <MailIcon class="size-4" />
-          joan.marquenyo@gmail.com
-        </SocialPill>
-        <SocialPill href="https://linkedin.com/in/joanmarqueno">
-          <LinkedInIcon class="size-4" />
-          LinkedIn
-        </SocialPill>
-        <SocialPill href="https://github.com/JoanMarqueno">
-          <GitHubIcon class="size-4" />
-          GitHub
-        </SocialPill>
-      </nav>
-    </div>
-  </div>
+  <nav class="mt-6 flex flex-wrap gap-3">
+    <a
+      href="/cv-joan-marqueno.pdf"
+      download
+      class="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500"
+    >
+      Descargar CV
+    </a>
+    <SocialPill href="mailto:joan.marquenyo@gmail.com">
+      <MailIcon class="size-4" />
+      joan.marquenyo@gmail.com
+    </SocialPill>
+    <SocialPill href="https://linkedin.com/in/joanmarqueno">
+      <LinkedInIcon class="size-4" />
+      LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/JoanMarqueno">
+      <GitHubIcon class="size-4" />
+      GitHub
+    </SocialPill>
+  </nav>
 </div>

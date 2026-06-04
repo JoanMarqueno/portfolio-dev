@@ -2,9 +2,13 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="mx-auto mt-16 w-full max-w-5xl px-4 pb-10">
-  <div class="rounded-[1.75rem] border border-stone-200/80 bg-white/75 px-6 py-5 text-sm text-stone-600 shadow-[0_18px_50px_-32px_rgba(28,25,23,0.35)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-300">
-    <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-6">
+<footer class="mx-auto mt-12 w-full max-w-5xl px-4 pb-10">
+  <div
+    class="rounded-xl border border-stone-200 bg-white px-6 py-5 text-sm text-stone-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400"
+  >
+    <div
+      class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-6"
+    >
       <p class="max-w-2xl leading-7">
         © {currentYear}
         <a
@@ -12,19 +16,34 @@ const currentYear = new Date().getFullYear();
           class="font-medium text-stone-900 transition hover:text-teal-700 dark:text-stone-50 dark:hover:text-teal-300"
         >
           Joan Marqueño
-        </a>.
-        Full Stack Engineer con foco en Python, TypeScript e IA aplicada.
+        </a>. Full Stack · Python · TypeScript · IA aplicada.
       </p>
 
       <nav class="flex flex-wrap gap-x-5 gap-y-2 lg:justify-end">
-        <a href="/#especialidades" class="transition hover:text-teal-700 dark:hover:text-teal-300">
-        Especialidades
+        <a
+          href="/cv-joan-marqueno.pdf"
+          download
+          class="transition hover:text-teal-700 dark:hover:text-teal-300"
+        >
+          CV
         </a>
-        <a href="/#proyectos" class="transition hover:text-teal-700 dark:hover:text-teal-300">
-        Proyectos
+        <a
+          href="/#experiencia"
+          class="transition hover:text-teal-700 dark:hover:text-teal-300"
+        >
+          Experiencia
         </a>
-        <a href="/#contacto" class="transition hover:text-teal-700 dark:hover:text-teal-300">
-        Contacto
+        <a
+          href="/#proyectos"
+          class="transition hover:text-teal-700 dark:hover:text-teal-300"
+        >
+          Proyectos
+        </a>
+        <a
+          href="/#contacto"
+          class="transition hover:text-teal-700 dark:hover:text-teal-300"
+        >
+          Contacto
         </a>
       </nav>
     </div>
